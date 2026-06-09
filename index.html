@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uai Adubos – Plantas Mais Saudáveis, Colheita Mais Farta</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde-escuro: #1a5c1a;
+    --verde-medio: #2d8a2d;
+    --verde-claro: #4caf50;
+    --dourado: #f5a623;
+    --dourado-escuro: #c8820a;
+    --creme: #fdf6e3;
+    --branco: #ffffff;
+    --vermelho-risco: #c0392b;
+    --texto-escuro: #1a1a1a;
+    --sombra: 0 8px 32px rgba(0,0,0,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--verde-escuro);
+    color: var(--texto-escuro);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  /* ── BARRA TOPO ── */
+  .topo-aviso {
+    background: var(--dourado);
+    color: var(--texto-escuro);
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #1a5c1a 0%, #2d8a2d 60%, #1a5c1a 100%);
+    text-align: center;
+    padding: 60px 20px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--dourado);
+    color: var(--texto-escuro);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 50px;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    color: var(--branco);
+    line-height: 1.15;
+    margin-bottom: 18px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  }
+  .hero h1 span { color: var(--dourado); }
+  .hero p {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: #d4edda;
+    max-width: 700px;
+    margin: 0 auto 32px;
+    font-weight: 600;
+  }
+  .btn-hero {
+    display: inline-block;
+    background: var(--dourado);
+    color: var(--texto-escuro);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    padding: 20px 48px;
+    border-radius: 60px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(245,166,35,0.5);
+    transition: transform 0.15s, box-shadow 0.15s;
+    animation: pulso 2s infinite;
+    letter-spacing: 0.5px;
+  }
+  .btn-hero:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 32px rgba(245,166,35,0.65); }
+  @keyframes pulso {
+    0%, 100% { box-shadow: 0 6px 24px rgba(245,166,35,0.5); }
+    50% { box-shadow: 0 6px 40px rgba(245,166,35,0.85); }
+  }
+
+  /* ── CONFIANÇA ── */
+  .confianca {
+    background: var(--creme);
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+    text-align: center;
+  }
+  .confianca-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--verde-escuro);
+  }
+  .confianca-item .icon { font-size: 1.8rem; }
+
+  /* ── PROBLEMA / SOLUÇÃO ── */
+  .problema {
+    background: var(--branco);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .problema h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    color: var(--verde-escuro);
+    margin-bottom: 16px;
+  }
+  .problema p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #444;
+    max-width: 720px;
+    margin: 0 auto 28px;
+  }
+  .lista-problemas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    max-width: 860px;
+    margin: 0 auto 30px;
+  }
+  .prob-item {
+    background: #fff5f5;
+    border-left: 5px solid #e74c3c;
+    padding: 16px 22px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    flex: 1 1 240px;
+  }
+  .prob-item .emoji { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+
+  /* ── BENEFÍCIOS ── */
+  .beneficios {
+    background: linear-gradient(135deg, #1a5c1a 0%, #2d8a2d 100%);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .beneficios h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    color: var(--branco);
+    margin-bottom: 12px;
+  }
+  .beneficios > p {
+    color: #c8e6c9;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+  .bens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .ben-card {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 28px 22px;
+    text-align: center;
+    color: var(--branco);
+  }
+  .ben-card .big-icon { font-size: 2.8rem; margin-bottom: 12px; display: block; }
+  .ben-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--dourado);
+  }
+  .ben-card p { font-size: 0.98rem; color: #d4edda; }
+
+  /* ── KITS ── */
+  .kits-section {
+    background: var(--creme);
+    padding: 60px 20px;
+  }
+  .kits-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    color: var(--verde-escuro);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .kits-section > p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 44px;
+  }
+  .kits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 1050px;
+    margin: 0 auto;
+  }
+
+  .kit-card {
+    background: var(--branco);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+    border: 3px solid transparent;
+  }
+  .kit-card:hover { transform: translateY(-6px); }
+  .kit-card.destaque {
+    border-color: var(--dourado);
+    transform: scale(1.03);
+    position: relative;
+  }
+  .kit-card.destaque:hover { transform: scale(1.03) translateY(-6px); }
+
+  .kit-badge-top {
+    background: var(--dourado);
+    color: var(--texto-escuro);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+    text-align: center;
+    padding: 8px;
+    text-transform: uppercase;
+  }
+  .kit-cabecalho {
+    background: var(--verde-escuro);
+    color: var(--branco);
+    padding: 24px 22px 18px;
+    text-align: center;
+  }
+  .kit-subtitulo {
+    font-size: 0.9rem;
+    color: #a5d6a7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .kit-nome {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--dourado);
+    margin-bottom: 4px;
+  }
+  .kit-plantas {
+    font-size: 1rem;
+    color: #c8e6c9;
+    font-weight: 600;
+  }
+
+  .kit-preco {
+    padding: 22px 22px 8px;
+    text-align: center;
+    background: var(--branco);
+  }
+  .preco-de {
+    font-size: 1.1rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .preco-por-label {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .preco-valor {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
+    color: var(--verde-escuro);
+    line-height: 1;
+  }
+  .preco-valor sup { font-size: 1.1rem; vertical-align: super; }
+  .preco-valor sub { font-size: 1.5rem; vertical-align: sub; }
+  .preco-parcelas {
+    font-size: 0.95rem;
+    color: #777;
+    margin-top: 6px;
+  }
+
+  .kit-itens {
+    padding: 18px 22px;
+    flex: 1;
+  }
+  .kit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: #333;
+    font-weight: 600;
+  }
+  .kit-item .check { color: var(--verde-claro); font-size: 1.3rem; flex-shrink: 0; }
+
+  .kit-investimento {
+    background: #f0faf0;
+    border-top: 1px solid #e0f0e0;
+    padding: 12px 22px;
+    text-align: center;
+    font-size: 0.92rem;
+    color: var(--verde-escuro);
+    font-weight: 700;
+  }
+
+  .btn-comprar {
+    display: block;
+    margin: 0 18px 18px;
+    background: var(--dourado);
+    color: var(--texto-escuro);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(245,166,35,0.45);
+    transition: transform 0.15s, background 0.15s;
+    letter-spacing: 0.5px;
+  }
+  .btn-comprar:hover { background: var(--dourado-escuro); transform: scale(1.03); color: var(--branco); }
+
+  /* ── DEPOIMENTOS ── */
+  .depoimentos {
+    background: var(--branco);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .depoimentos h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 4vw, 2.3rem);
+    color: var(--verde-escuro);
+    margin-bottom: 36px;
+  }
+  .deps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 22px;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  .dep-card {
+    background: var(--creme);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: left;
+    border-left: 5px solid var(--verde-claro);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+  .dep-estrelas { color: var(--dourado); font-size: 1.3rem; margin-bottom: 10px; }
+  .dep-texto {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.65;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .dep-autor { font-weight: 700; font-size: 0.95rem; color: var(--verde-escuro); }
+  .dep-local { font-size: 0.85rem; color: #888; }
+
+  /* ── GARANTIA ── */
+  .garantia {
+    background: linear-gradient(135deg, #1a5c1a, #2d8a2d);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .garantia-caixa {
+    background: var(--branco);
+    border-radius: 20px;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 44px 36px;
+    box-shadow: var(--sombra);
+  }
+  .garantia-icon { font-size: 4rem; margin-bottom: 16px; }
+  .garantia h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--verde-escuro);
+    margin-bottom: 14px;
+  }
+  .garantia p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* ── WHATSAPP FLUTUANTE ── */
+  .btn-whats-fixo {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 9999;
+    background: #25D366;
+    color: var(--branco);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 16px 26px;
+    border-radius: 60px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.55);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: pulsoW 2.5s infinite;
+    transition: transform 0.15s;
+  }
+  .btn-whats-fixo:hover { transform: scale(1.07); }
+  @keyframes pulsoW {
+    0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.55); }
+    50% { box-shadow: 0 6px 42px rgba(37,211,102,0.85); }
+  }
+  .whats-icon { font-size: 1.5rem; }
+
+  /* ── SEÇÃO WHATSAPP ── */
+  .whatsapp-section {
+    background: var(--creme);
+    padding: 50px 20px;
+    text-align: center;
+  }
+  .whatsapp-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--verde-escuro);
+    margin-bottom: 14px;
+  }
+  .whatsapp-section p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-whats-grande {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: #25D366;
+    color: var(--branco);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    padding: 22px 48px;
+    border-radius: 60px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+    transition: transform 0.15s;
+  }
+  .btn-whats-grande:hover { transform: scale(1.04); }
+
+  /* ── RODAPÉ ── */
+  footer {
+    background: #0d3b0d;
+    color: #aaa;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+  }
+  footer strong { color: var(--dourado); }
+
+  /* ── RESPONSIVO ── */
+  @media (max-width: 600px) {
+    .btn-hero { padding: 18px 30px; }
+    .kit-card.destaque { transform: none; }
+    .btn-whats-fixo span.texto { display: none; }
+    .btn-whats-fixo { padding: 16px 18px; border-radius: 50%; }
+  }
+   @media (max-width: 768px) { }
+
+  body {
+    font-size: 22px;
+  }
+
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .btn-hero,
+  .btn-comprar,
+  .btn-whats-grande {
+    width: 100%;
+    max-width: 100%;
+    font-size: 1.4rem;
+    padding: 22px;
+  }
+
+  .kits-grid,
+  .deps-grid,
+ 
+
+</style>
+</head>
+<body>
+
+<!-- BARRA TOPO -->
+<div class="topo-aviso">
+  🌿 FRETE GRÁTIS para todo o Brasil | Parcele em até 4x sem juros 🌿
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🏆 Produto Exclusivo Uai Adubos</div>
+  <h1>🌱 Suas Plantas Fracas Podem <span>Voltar a Produzir</span><br>em Poucas Semanas</h1>
+  <p>O adubo certo faz toda a diferença. Com o Uai Adubos, suas plantas recebem tudo que precisam para florescer – simples, prático e com resultado garantido.</p>
+  <<a href="#kits" class="btn-hero" onclick="document.getElementById('kits').scrollIntoView({behavior:'smooth'});return false;">
+🌱 VER OS KITS E PREÇOS
+</a>
+</section>
+
+
+<section style="background:#dff0d8;padding:15px;text-align:center;font-weight:700;font-size:22px;">
+🔥 Mais de 4.000 kits vendidos em todo o Brasil
+</section>
+
+<!-- KITS -->
+<section class="kits-section" id="kits">
+  <h2>🌱 Escolha o Seu Kit</h2>
+  <p>Quanto mais plantas você tem, mais economia você faz. Veja as opções:</p>
+
+  <div class="kits-grid">
+
+    <!-- KIT 50 -->
+    <div class="kit-card">
+      <div class="kit-cabecalho">
+        <div class="kit-subtitulo">Produto Exclusivo Uai Adubos</div>
+        <div class="kit-nome">Kit 50 Adubos</div>
+        <div class="kit-plantas">Para 50 Plantas</div>
+      </div>
+      <div class="kit-preco">
+        <div class="preco-de">DE: R$ 299,90</div>
+        <div class="preco-por-label">Por apenas:</div>
+        <div class="preco-valor"><sup>R$</sup>99,90<sub>,50</sub></div>
+        <div class="preco-parcelas">ou 4x de R$ 24,97 sem juros</div>
+      </div>
+      <div class="kit-itens">
+        <div class="kit-item"><span class="check">✅</span>Aduba até 50 plantas</div>
+        <div class="kit-item"><span class="check">✅</span>5 meses de adubação contínua</div>
+        <div class="kit-item"><span class="check">✅</span>Consultoria pelo WhatsApp</div>
+        <div class="kit-item"><span class="check">✅</span>Guia de uso simples e fácil</div>
+      </div>
+      <div class="kit-investimento">💡 Apenas R$ 1,00 de investimento mensal por planta</div>
+      <a href="https://pay.kirvano.com/62042955-d3d3-42d8-b7b7-edb2d1a38173" target="_blank" class="btn-comprar">🛒 COMPRAR AGORA</a>
+    </div>
+
+    <!-- KIT 100 – DESTAQUE -->
+    <div class="kit-card destaque">
+      <div class="kit-badge-top">⭐ MAIS VENDIDO – MELHOR CUSTO-BENEFÍCIO ⭐</div>
+      <div class="kit-cabecalho">
+        <div class="kit-subtitulo">Produto Exclusivo Uai Adubos</div>
+        <div class="kit-nome">Kit 100 Adubos</div>
+        <div class="kit-plantas">Para 100 Plantas</div>
+      </div>
+      <div class="kit-preco">
+        <div class="preco-de">DE: R$ 399,90</div>
+        <div class="preco-por-label">Por apenas:</div>
+        <div class="preco-valor"><sup>R$</sup>249<sub>,00</sub></div>
+        <div class="preco-parcelas">ou 4x de R$ 62,25 sem juros</div>
+      </div>
+      <div class="kit-itens">
+        <div class="kit-item"><span class="check">✅</span>Aduba até 100 plantas</div>
+        <div class="kit-item"><span class="check">✅</span>5 meses de adubação contínua</div>
+        <div class="kit-item"><span class="check">✅</span>Consultoria pelo WhatsApp</div>
+        <div class="kit-item"><span class="check">✅</span>Guia de uso simples e fácil</div>
+        <div class="kit-item"><span class="check">✅</span>Economia de R$ 150,90 vs preço normal</div>
+      </div>
+      <div class="kit-investimento">💡 Apenas R$ 0,87 de investimento mensal por planta</div>
+      <a href="https://pay.kirvano.com/905fa5a2-dbca-4577-8417-035dcde874f8" target="_blank" class="btn-comprar">🛒 COMPRAR AGORA</a>
+    </div>
+
+    <!-- KIT 200 -->
+    <div class="kit-card">
+      <div class="kit-cabecalho">
+        <div class="kit-subtitulo">Produto Exclusivo Uai Adubos</div>
+        <div class="kit-nome">Kit 200 Adubos</div>
+        <div class="kit-plantas">Para 200 Plantas</div>
+      </div>
+      <div class="kit-preco">
+        <div class="preco-de">DE: R$ 699,90</div>
+        <div class="preco-por-label">Por apenas:</div>
+        <div class="preco-valor"><sup>R$</sup>398<sub>,00</sub></div>
+        <div class="preco-parcelas">ou 4x de R$ 99,50 sem juros</div>
+      </div>
+      <div class="kit-itens">
+        <div class="kit-item"><span class="check">✅</span>Aduba até 200 plantas</div>
+        <div class="kit-item"><span class="check">✅</span>5 meses de adubação contínua</div>
+        <div class="kit-item"><span class="check">✅</span>Consultoria pelo WhatsApp</div>
+        <div class="kit-item"><span class="check">✅</span>Guia de uso simples e fácil</div>
+        <div class="kit-item"><span class="check">✅</span>Máxima economia por planta</div>
+      </div>
+      <div class="kit-investimento">💡 Apenas R$ 0,87 de investimento mensal por planta</div>
+      <a href="https://pay.kirvano.com/1768efba-12dc-461c-ac2f-e8c5e523df88" target="_blank" class="btn-comprar">🛒 COMPRAR AGORA</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONFIANÇA -->
+<div class="confianca">
+  <div class="confianca-item"><span class="icon">✅</span> Produto 100% Testado</div>
+  <div class="confianca-item"><span class="icon">🔒</span> Compra Segura</div>
+  <div class="confianca-item"><span class="icon">🚚</span> Frete Grátis </div>
+  <div class="confianca-item"><span class="icon">📞</span> Suporte no WhatsApp</div>
+  <div class="confianca-item"><span class="icon">🏅</span> Qualidade Premium</div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="problema">
+  <h2>Suas Plantas Estão Sofrendo com Isso?</h2>
+  <p>Muitas pessoas cuidam das suas plantas com carinho, mas mesmo assim elas não crescem como deveriam. O problema quase sempre é a <strong>falta de nutrição certa</strong>.</p>
+  <div class="lista-problemas">
+    <div class="prob-item"><span class="emoji">😟</span>Folhas amarelas e fracas, mesmo com rega certa</div>
+    <div class="prob-item"><span class="emoji">🌱</span>Plantas que crescem devagar e não florescem</div>
+    <div class="prob-item"><span class="emoji">🍋</span>Frutas pequenas e sem sabor na colheita</div>
+    <div class="prob-item"><span class="emoji">💸</span>Dinheiro jogado fora com adubos que não funcionam</div>
+  </div>
+  <p style="font-size:1.15rem;font-weight:700;color:var(--verde-escuro);">O Uai Adubos resolve tudo isso de vez! ⬇️</p>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section class="beneficios">
+  <h2>Por Que o Uai Adubos Funciona Tão Bem?</h2>
+  <p>Uma fórmula exclusiva com 7 nutrientes essenciais para todo tipo de planta</p>
+  <div class="bens-grid">
+    <div class="ben-card">
+      <span class="big-icon">🌿</span>
+      <h3>Plantas Mais Verdes</h3>
+      <p>Folhas saudáveis, cheias de cor e vida desde as primeiras semanas de uso.</p>
+    </div>
+    <div class="ben-card">
+      <span class="big-icon">🍅</span>
+      <h3>Colheita Abundante</h3>
+      <p>Mais frutos, flores e verduras. Sua horta vai produzir como nunca antes.</p>
+    </div>
+    <div class="ben-card">
+      <span class="big-icon">💧</span>
+      <h3>Fácil de Usar</h3>
+      <p>Sem complicação. Siga o guia simples que vem no kit e pronto. Qualquer um consegue!</p>
+    </div>
+    <div class="ben-card">
+      <span class="big-icon">🛡️</span>
+      <h3>5 Meses de Adubação</h3>
+      <p>Cada kit garante 5 meses completos de nutrição contínua para suas plantas.</p>
+    </div>
+    <div class="ben-card">
+      <span class="big-icon">💬</span>
+      <h3>Suporte Personalizado</h3>
+      <p>Nossa equipe te atende pelo WhatsApp e tira todas as suas dúvidas.</p>
+    </div>
+    <div class="ben-card">
+      <span class="big-icon">⭐</span>
+      <h3>Qualidade Premium</h3>
+      <p>Produto testado e aprovado por milhares de clientes em todo o Brasil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <h2>💬 O Que Nossos Clientes Estão Dizendo</h2>
+  <div class="deps-grid">
+    <div class="dep-card">
+      <div class="dep-estrelas">★★★★★</div>
+      <p class="dep-texto">"Usei o Kit 50 nas minhas roseiras e fruteiras. Em menos de um mês, minhas plantas ficaram totalmente diferentes! Verdes, cheias de flores. Recomendo de olhos fechados."</p>
+      <div class="dep-autor">Dona Maria das Graças, 67 anos</div>
+      <div class="dep-local">Minas Gerais</div>
+    </div>
+    <div class="dep-card">
+      <div class="dep-estrelas">★★★★★</div>
+      <p class="dep-texto">"Tenho horta há mais de 30 anos e nunca usei um adubo tão bom. Minhas couves e tomates cresceram muito mais. O suporte pelo WhatsApp foi ótimo, me ajudaram direitinho."</p>
+      <div class="dep-autor">Seu Antônio Ferreira, 72 anos</div>
+      <div class="dep-local">São Paulo</div>
+    </div>
+    <div class="dep-card">
+      <div class="dep-estrelas">★★★★★</div>
+      <p class="dep-texto">"Comprei o Kit 200 para o sítio do meu marido. Foi a melhor decisão. Economizamos muito e as plantas estão lindas. A entrega foi rápida e o produto veio bem embalado."</p>
+      <div class="dep-autor">Dona Benedita Silva, 64 anos</div>
+      <div class="dep-local">Paraná</div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="garantia">
+  <div class="garantia-caixa">
+    <div class="garantia-icon">🛡️</div>
+    <h2>Sua Compra é Totalmente Segura</h2>
+    <p>Nós confiamos tanto no nosso produto que oferecemos <strong>suporte completo</strong> para você. Se tiver qualquer dúvida antes ou depois da compra, nossa equipe está no WhatsApp prontinha para te ajudar. Você não fica sozinho em nenhum momento!</p>
+  </div>
+</section>
+
+<!-- WHATSAPP SECTION -->
+<section class="whatsapp-section">
+  <h2>📱 Prefere Comprar pelo WhatsApp?</h2>
+  <p>Fale agora com nossa equipe. Respondemos rapidinho e te ajudamos a escolher o kit certo para o tamanho do seu jardim ou horta.</p>
+  <a href="https://wa.me/SEU_NUMERO_AQUI?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Mix%207%20Adubos!" target="_blank" class="btn-whats-grande">
+    <span style="font-size:1.8rem;">💬</span>
+    FALAR NO WHATSAPP AGORA
+  </a>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <p><strong>Uai Adubos</strong> – Produto Exclusivo para Suas Plantas</p>
+  <p style="margin-top:8px;">Parcele em até 4x sem juros &nbsp;|&nbsp; Frete Grátis &nbsp;|&nbsp; Suporte pelo WhatsApp</p>
+  <p style="margin-top:12px;font-size:0.8rem;">© 2025 Uai Adubos. Todos os direitos reservados.</p>
+</footer>
+
+<!-- BOTÃO WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/SEU_NUMERO_AQUI?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Mix%207%20Adubos!" target="_blank" class="btn-whats-fixo">
+  <span class="whats-icon">💬</span>
+  <span class="texto">Falar no WhatsApp</span>
+</a>
+
+</body>
+</html>
